@@ -137,9 +137,11 @@ def dance():
         go(2)
         right(1)
         left(2)
+        right(1)
         back(2)
         right(1)
         left(2)
+        right(1)
     start()
 def chacha_slide():
     """
