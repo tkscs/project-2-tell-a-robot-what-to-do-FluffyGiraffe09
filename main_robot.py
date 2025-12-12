@@ -135,10 +135,10 @@ def dance():
     how_far()
     for i in range(2):
         go(2)
-        right(2)
+        right(1)
         left(2)
         back(2)
-        right(2)
+        right(1)
         left(2)
     start()
 def chacha_slide():
