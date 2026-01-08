@@ -183,7 +183,6 @@ def start():
     else:
         print("please answer with one of the options.")
         start()
-
 def trick():
     """
     THIS FUNCTION ASKS THE PERSON WHAT TRICK THEY WOULD LIKE TO SEE.
