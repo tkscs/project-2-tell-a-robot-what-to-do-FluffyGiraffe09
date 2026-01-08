@@ -82,7 +82,7 @@ def spin_right():
                 if left_distance > 5 and right_distance > 5:
                     Block = "No"
                     right(float(x) / 90)
-                elif left_distance <= 5 or right_distance <= 5:
+                else:
                     Block = "Yes"
                     break
             start()
@@ -114,7 +114,7 @@ def spin_left():
                 if left_distance > 5 and right_distance > 5:
                     Block = "No"
                     left(float(x) / 90)
-                elif left_distance <= 5 or right_distance <= 5:
+                else:
                     Block = "Yes"
                     break
             start()
@@ -168,31 +168,42 @@ def chacha_slide():
         go(1)
         back(1)
     start()
+
 def start():
     """
     THIS FUNCTION IS THE STARTING CODE THAT INTERACTS WITH THE HUMAN. 
-    IT ASKS IF THE PERSON WOULD LIKE TO SEE A TRICK AND IF SO WHAT TRICK THEY WOULD LIKE TO SEE.
+    IT ASKS IF THE PERSON WOULD LIKE TO SEE A TRICK
     """
     response=input("Hi! I am a Robot! Would you like to see me do a trick? (yes, or no)")
     if response=="yes" or response=="Y" or response=="Yes" or response=="y":
-        response=input("What trick would you like to see? I can do a spin to the right (1), a spin to the left (2), a little dance (3), and the chacha slide (4).")
-        if response=="1" or response=="spin right":
-            spin_right()
-        elif response=="2" or response=="spin left":
-            spin_left()
-        elif response=="3" or response=="little dance":
-            dance()
-        elif response=="4" or response=="cha cha slide":
-            chacha_slide()
-        else:
-            print("Please respond with one of the options.")
-            start()
+        trick()
     elif response=="no":
         print("See you next time!")
         robot.exit()
     else:
+        print("please answer with one of the options.")
         start()
 
+def trick():
+    """
+    THIS FUNCTION ASKS THE PERSON WHAT TRICK THEY WOULD LIKE TO SEE.
+    """
+    response=input("What trick would you like to see? I can do a spin to the right (1), a spin to the left (2), a little dance (3), and the chacha slide (4)----If you would like to exit this program, please type: escape.")
+    if response=="1" or response=="spin right":
+            spin_right()
+    elif response=="2" or response=="spin left":
+            spin_left()
+    elif response=="3" or response=="little dance":
+            dance()
+    elif response=="4" or response=="cha cha slide":
+            chacha_slide()
+    elif response=="escape":
+        print("See you next time!")
+        robot.exit()
+    else:
+        print("Please respond with one of the options.")
+        trick()
+    
 
 how_far()
 start()
