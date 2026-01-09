@@ -1,4 +1,5 @@
-from simulator import robot, FORWARD, BACKWARD, STOP
+
+from simulator import robot, FORWARD, BACKWARD, STOP 
 # TODO: Write your code here!
 
 def go(seconds):
@@ -48,6 +49,7 @@ def how_far():
     right_distance = robot.right_sonar()
     if left_distance<20 or right_distance<20:
         robot.motors(STOP, STOP, 1)
+        print("too close to wall")
         back(10)
 
 def is_float(x):
@@ -85,11 +87,12 @@ def spin_right():
                 else:
                     Block = "Yes"
                     break
-            start()
             if Block == "Yes":
-                print("Uh oh! There's something in my way.")
+                print("Uh oh! There's something in my way. Backing up...")
                 back(10)
-                return spin_right()
+                spin_right()
+            else:
+                 start()
     elif 1> float(x) or  float(x)>6:
             x=float(x)
             print("You must pick a number within the bounds")
@@ -117,11 +120,12 @@ def spin_left():
                 else:
                     Block = "Yes"
                     break
-            start()
             if Block == "Yes":
                 print("Uh oh! There's something in my way.")
                 back(10)
-            return spin_left()
+                spin_left()
+            else:
+                 start()
     elif 1> float(x) or  float(x)>6:
             x=float(x)
             print("You must pick a number within the bounds")
